@@ -7,7 +7,10 @@ const getErrorResponse = (info, status) => {
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Credentials": true,
     },
-    body: JSON.stringify(info),
+    body: JSON.stringify({
+      info,
+      success: false,
+    }),
   };
 };
 
