@@ -1,0 +1,6 @@
+
+.env.dev
+.env
+
+.serverless
+node_modules/

@@ -1,0 +1,7 @@
+verifyOtp:
+  handler: src/functions/otpHandler/otpHandler.main
+  events:
+    - http:
+        path: verifyOtp
+        method: POST
+        cors: true

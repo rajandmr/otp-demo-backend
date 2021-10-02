@@ -1,0 +1,35 @@
+service: blys-task
+frameworkVersion: "2"
+
+custom:
+  region:
+    dev: ap-southeast-1
+
+  profile:
+    dev: personal
+
+  layerArn:
+    dev: ${env:LAYER_ARN}
+
+package:
+  individually: true
+  # exclude:
+  #   - package.json
+  #   - node_modules/**
+
+plugins:
+  - serverless-dotenv-plugin
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  lambdaHashingVersion: 20201221
+  stage: ${opt:stage, 'dev'}
+  deploymentBucket: ${env:DEPLOYMENT_BUCKET}
+  region: ${self:custom.region.${self:provider.stage}}
+  profile: ${self:custom.profile.${self:provider.stage}}
+  layers:
+    - ${self:custom.layerArn.${self:provider.stage}}
+
+functions:
+  - ${file(src/functions/otpHandler/index.yml)}

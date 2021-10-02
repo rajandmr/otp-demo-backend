@@ -1,0 +1,19 @@
+{
+  "name": "Blys-Task",
+  "version": "1.0.0",
+  "description": "",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "serverless-dotenv-plugin": "^3.9.0"
+  },
+  "dependencies": {
+    "ajv": "^8.6.3",
+    "ajv-formats": "^2.1.1"
+  }
+}
