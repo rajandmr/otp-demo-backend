@@ -11,6 +11,7 @@ module.exports.main = async (event) => {
     const valid = Validate(request);
 
     if (valid !== true) {
+      const error = valid;
       return getErrorResponse(error, 422);
     }
 
